@@ -22,3 +22,32 @@
 
 /* BigNest / damper collection */
 .damper-intro{padding:85px 0 35px}.damper-intro h1{font-size:clamp(50px,8.5vw,122px);line-height:.98;margin:25px 0;color:#f6f3ef}.damper-intro p{max-width:760px;color:#b5b5bd;font-size:18px;line-height:1.7}.damper-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;padding:32px 0 90px}.damper-tile{display:block;background:#19191d;border:1px solid #37373d;color:inherit;text-decoration:none;transition:transform .2s,border-color .2s}.damper-tile:hover{transform:translateY(-4px);border-color:#ef453c}.damper-tile figure{height:400px;margin:0;overflow:hidden;background:#222227;display:flex;justify-content:center;align-items:center}.damper-tile img{width:100%;height:100%;object-fit:contain}.damper-tile-info{padding:27px}.damper-kicker{font-size:12px;color:#ed4a40;letter-spacing:.16em;font-weight:800}.damper-tile h2{font-size:clamp(27px,3vw,42px);line-height:1.05;margin:14px 0}.damper-tile p{color:#b7b7be;line-height:1.6}.damper-open{display:inline-block;margin-top:17px;color:#fff;font-size:13px;font-weight:800;letter-spacing:.08em}.product-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:55px;padding:35px 0 75px;align-items:start}.product-photo{background:#1b1b20;border:1px solid #33343b;min-height:440px;display:flex;align-items:center;justify-content:center;overflow:hidden}.product-photo img{max-height:690px;width:100%;object-fit:contain;display:block}.thumbs{display:flex;gap:10px;overflow-x:auto;padding:12px 0}.thumb{width:88px;height:112px;flex:0 0 88px;border:2px solid #3a3a42;background:#202025;padding:0;cursor:pointer}.thumb[aria-pressed="true"]{border-color:#ef453c}.thumb img{width:100%;height:100%;object-fit:contain}.product-copy h1{font-size:clamp(37px,4.6vw,70px);line-height:1.02;margin:17px 0 20px}.product-copy p{color:#bcbcc3;line-height:1.65;font-size:17px}.product-features{border-top:1px solid #39393f;border-bottom:1px solid #39393f;margin:28px 0;padding:20px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px;color:#eee;font-size:14px}.design-label{font-size:12px;letter-spacing:.13em;color:#a8a8b0;font-weight:750;margin:24px 0 12px}.designs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.design{background:#222228;padding:3px;border:2px solid #38383f;cursor:pointer;aspect-ratio:3/4}.design[aria-pressed="true"]{border-color:#f04b40}.design img{width:100%;height:100%;object-fit:cover}.design-name{min-height:28px;margin:8px 0 0;color:#fafafa;font-size:13px}.product-buttons{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}.product-buttons a{flex:1 1 190px;text-align:center}.gallery-note{font-size:12px!important;color:#9999a2!important}.backline{margin:30px 0 0}.backline a{color:#fa7067;text-decoration:none}.common-info{border-top:1px solid #303037;padding:55px 0 90px}.common-info h2{font-size:clamp(34px,4vw,60px)}.common-info p{max-width:850px;color:#bcbcc3;line-height:1.7}.see-full{font-size:12px;color:#a9a9b1;margin-top:14px}.product-photo img{cursor:zoom-in}dialog.img-modal{border:0;padding:35px;background:#111;color:#fff;max-width:96vw;max-height:96vh}dialog.img-modal::backdrop{background:#000d}dialog.img-modal img{display:block;max-width:90vw;max-height:83vh;object-fit:contain}dialog.img-modal button{position:absolute;right:6px;top:5px;background:#ef453c;border:0;color:#fff;font-weight:800;padding:8px 12px;cursor:pointer}@media(max-width:850px){.damper-grid{grid-template-columns:1fr}.product-layout{grid-template-columns:1fr;gap:25px}.damper-tile figure{height:350px}.product-photo{min-height:290px}.product-features{grid-template-columns:1fr 1fr}}@media(max-width:450px){.damper-intro{padding:60px 0 15px}.damper-tile figure{height:310px}.product-features{grid-template-columns:1fr}.designs{grid-template-columns:repeat(4,1fr)}.thumb{width:70px;height:96px;flex-basis:70px}}
+
+
+/* BigNest: responsive damper product layouts */
+@media (max-width:850px){
+ .product-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+ .product-layout>div,.product-copy,.product-photo,.thumbs,.designs{min-width:0;max-width:100%}
+ .product-copy h1{font-size:clamp(32px,8vw,58px);overflow-wrap:anywhere;hyphens:auto}
+ .sub-hero .breadcrumbs{overflow-wrap:anywhere;line-height:1.7}
+}
+@media (max-width:600px){
+ .product-layout{padding:16px 0 45px;gap:22px}
+ .product-photo{min-height:0}
+ .product-photo img{height:auto;max-height:75vh;object-fit:contain}
+ .product-copy h1{font-size:clamp(29px,8.5vw,48px);letter-spacing:-.5px;line-height:1.08}
+ .product-copy p{font-size:14px;line-height:1.65}
+ .designs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .design{min-width:0;aspect-ratio:3/4}
+ .design img{object-fit:contain}
+ .thumbs{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+ .product-features{grid-template-columns:1fr;font-size:13px}
+ .product-buttons{display:grid;grid-template-columns:minmax(0,1fr)}
+ .product-buttons a{width:100%;min-width:0}
+ .common-info{padding:35px 0 45px}
+ .common-info h2{font-size:clamp(31px,9vw,45px)}
+ .damper-grid{gap:16px;padding-bottom:40px}
+ .damper-tile h2{overflow-wrap:anywhere}
+ dialog.img-modal{padding:44px 8px 12px}
+ dialog.img-modal img{max-width:calc(100vw - 24px);max-height:calc(100dvh - 80px)}
+}
