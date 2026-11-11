@@ -114,3 +114,14 @@
 .ruler-copy h4{font:700 clamp(24px,3vw,36px)/1.1 Oswald,Impact,sans-serif;margin:8px 0 16px}
 .ruler-model .ruler-product{margin-top:24px}
 .ruler-model .ruler-gallery{margin-bottom:0}
+
+
+/* Compact ruler thumbnails directly below the main image — same as straps/dampers */
+.ruler-model .ruler-media{min-width:0;width:100%}
+.ruler-model .ruler-hero{width:100%;min-width:0}
+.ruler-model .ruler-gallery{width:100%;min-width:0;margin:12px 0 0}
+.ruler-model .ruler-gallery .design-label{font-size:11px;margin-bottom:8px}
+.ruler-model .ruler-thumbs{display:flex;flex-wrap:nowrap;gap:10px;width:100%;max-width:100%;min-width:0;margin-top:10px;overflow-x:auto;overflow-y:hidden;padding-bottom:10px;overscroll-behavior-inline:contain}
+.ruler-model .ruler-thumb{flex:0 0 88px;width:88px;max-width:88px;height:118px;aspect-ratio:3/4}
+.ruler-model .ruler-thumb img{width:100%;height:100%;object-fit:contain}
+@media(max-width:600px){.ruler-model .ruler-thumb{flex-basis:75px;width:75px;max-width:75px;height:100px}.ruler-model .ruler-thumbs{gap:8px}}
