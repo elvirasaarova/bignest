@@ -125,3 +125,17 @@
 .ruler-model .ruler-thumb{flex:0 0 88px;width:88px;max-width:88px;height:118px;aspect-ratio:3/4}
 .ruler-model .ruler-thumb img{width:100%;height:100%;object-fit:contain}
 @media(max-width:600px){.ruler-model .ruler-thumb{flex-basis:75px;width:75px;max-width:75px;height:100px}.ruler-model .ruler-thumbs{gap:8px}}
+
+
+/* Keep scrolling available while hiding its visual controls. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+.product-photo:has(+ .thumbs),
+.ruler-hero,
+.img-modal img {
+  touch-action: pan-y pinch-zoom;
+}
