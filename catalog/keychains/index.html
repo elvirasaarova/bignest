@@ -5,10 +5,12 @@
   <div class="thumbs" aria-label="Фотографии выбранного брелока">
     <button type="button" class="thumb" aria-pressed="true" aria-label="Общий вид"><img src="../../assets/keychains/anarchy-front.webp" alt=""></button>
     <button type="button" class="thumb" aria-pressed="false" aria-label="Обе стороны крупным планом"><img src="../../assets/keychains/anarchy-detail.webp" alt=""></button>
+    <button type="button" class="thumb" aria-pressed="false" aria-label="Размер и материал"><img src="../../assets/keychains/dimensions.webp" alt="" loading="lazy"></button>
+    <button type="button" class="thumb" aria-pressed="false" aria-label="Брелок на ключах и рюкзаке"><img src="../../assets/keychains/usage.webp" alt="" loading="lazy"></button>
   </div>
   <p class="see-full">Нажмите на фото, чтобы увеличить</p>
 </div><div class="product-copy"><h1 class="product-title">Брелоки-жетоны</h1>
-  <p>Брелоки для ключей с двусторонней гравировкой.</p>
+  <p>Металлический брелок-жетон с двусторонней гравировкой — компактный аксессуар для ключей, рюкзака, сумки или повседневного использования. Жетон комплектуется металлическим кольцом и соединительной цепочкой, благодаря чему его удобно закрепить на связке ключей, молнии рюкзака или другом аксессуаре.</p>
   <div class="design-label" id="keychainDesignLabel">ВЫБЕРИТЕ ОФОРМЛЕНИЕ</div>
   <div class="strap-designs" id="keychainDesigns" role="group" aria-labelledby="keychainDesignLabel">
     <button type="button" class="strap-design" aria-pressed="true" data-detail="../../assets/keychains/anarchy-detail.webp"><img src="../../assets/keychains/anarchy-front.webp" alt="" loading="lazy"><span>Анархия</span></button>
@@ -16,7 +18,17 @@
     <button type="button" class="strap-design" aria-pressed="false" data-detail="../../assets/keychains/kino-detail.webp"><img src="../../assets/keychains/kino-front.webp" alt="" loading="lazy"><span>Кино</span></button>
     <button type="button" class="strap-design" aria-pressed="false" data-detail="../../assets/keychains/kish-detail.webp"><img src="../../assets/keychains/kish-front.webp" alt="" loading="lazy"><span>Король и Шут</span></button>
   </div>
-  <p id="keychainDesignName" class="design-name" aria-live="polite">Анархия</p><div class="product-buttons"><a class="btn btn-red" href="https://www.ozon.ru/seller/bignest/" rel="noopener noreferrer" target="_blank">СМОТРЕТЬ НА OZON ↗</a><a class="btn btn-outline" href="https://vk.ru/bignest_guitar" rel="noopener noreferrer" target="_blank">ВОПРОС В VK ↗</a></div></div></div></section></main>
+  <p id="keychainDesignName" class="design-name" aria-live="polite">Анархия</p>
+  <div class="product-features" aria-label="Характеристики брелока">
+    <div>✦ Размер жетона 50 × 29 мм</div>
+    <div>✦ Алюминий с чёрным покрытием</div>
+    <div>✦ Металлическое кольцо и цепочка</div>
+    <div>✦ Двусторонняя гравировка</div>
+  </div>
+  <p>Жетон изготовлен из алюминия и имеет чёрное покрытие. Размер — 50 × 29 мм. Компактный формат не занимает много места и подходит для ежедневного ношения.</p>
+  <p>Главная особенность модели — двусторонняя гравировка. Изображение наносится как на лицевую, так и на обратную сторону жетона, поэтому дизайн хорошо смотрится с обеих сторон.</p>
+  <p>Чёрный металлический брелок для ключей подойдёт мужчинам, женщинам и подросткам. Его можно использовать как брелок на рюкзак, сумку, ключи от дома или автомобиля. Лаконичная форма жетона и чёрное покрытие позволяют сочетать аксессуар с разными стилями.</p>
+  <div class="product-buttons"><a class="btn btn-red" href="https://www.ozon.ru/seller/bignest/" rel="noopener noreferrer" target="_blank">СМОТРЕТЬ НА OZON ↗</a><a class="btn btn-outline" href="https://vk.ru/bignest_guitar" rel="noopener noreferrer" target="_blank">ВОПРОС В VK ↗</a></div></div></div></section></main>
 <dialog id="keychainModal" class="img-modal" aria-label="Фотография брелока">
   <button type="button" aria-label="Закрыть">×</button>
   <img alt="">
@@ -30,7 +42,10 @@ const keychainModal = document.querySelector('#keychainModal');
 const keychainModalPhoto = keychainModal.querySelector('img');
 
 function showKeychainPhoto(thumb) {
-  const label = keychainName.textContent + ' — ' + thumb.getAttribute('aria-label').toLowerCase();
+  const photoLabel = thumb.getAttribute('aria-label');
+  const label = thumb === frontThumb || thumb === detailThumb
+    ? keychainName.textContent + ' — ' + photoLabel.toLowerCase()
+    : photoLabel;
   keychainPhoto.src = thumb.querySelector('img').src;
   keychainPhoto.alt = label;
   keychainPhoto.setAttribute('aria-label', 'Увеличить фотографию: ' + label);
