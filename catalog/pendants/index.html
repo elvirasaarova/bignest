@@ -5,9 +5,12 @@
   <div class="thumbs" aria-label="Фотографии выбранного кулона">
     <button type="button" class="thumb" aria-pressed="true" aria-label="Основное фото"><img src="../../assets/pendant.webp" alt=""></button>
     <button type="button" class="thumb" aria-pressed="false" aria-label="Оборотная сторона"><img src="../../assets/pendants/linkin-park-back.webp" alt=""></button>
+    <button type="button" class="thumb" aria-pressed="false" aria-label="Материал подвески и цепочки"><img src="../../assets/pendants/material.webp" alt="" loading="lazy"></button>
+    <button type="button" class="thumb" aria-pressed="false" aria-label="Размеры кулона и цепочки"><img src="../../assets/pendants/dimensions.webp" alt="" loading="lazy"></button>
+    <button type="button" class="thumb" aria-pressed="false" aria-label="Как кулон смотрится на человеке"><img src="../../assets/pendants/worn.webp" alt="" loading="lazy"></button>
   </div>
   <p class="see-full">Нажмите на фото, чтобы увеличить</p>
-</div><div class="product-copy"><h1 class="product-title">Кулоны-медиаторы</h1><p>Двусторонние подвески в форме гитарного медиатора на чёрной цепочке.</p>
+</div><div class="product-copy"><h1 class="product-title">Кулоны-медиаторы</h1><p>Стильный музыкальный аксессуар для гитаристов и поклонников рока! Этот кулон выполнен в форме медиатора из прочной стали с чёрным покрытием, дополнен тематической гравировкой и комплектуется металлической цепочкой.</p>
 <div class="design-label" id="pendantDesignLabel">ВЫБЕРИТЕ ОФОРМЛЕНИЕ</div>
 <div class="strap-designs" id="pendantDesigns" role="group" aria-labelledby="pendantDesignLabel">
   <button type="button" class="strap-design" aria-pressed="true" data-back="../../assets/pendants/linkin-park-back.webp"><img src="../../assets/pendant.webp" loading="lazy" alt=""><span>Linkin Park</span></button>
@@ -20,7 +23,20 @@
   <button type="button" class="strap-design" aria-pressed="false" data-back="../../assets/pendants/sektor-back.webp" data-back-label="Символ крупным планом"><img src="../../assets/pendants/sektor-front.webp" loading="lazy" alt=""><span>Сектор Газа</span></button>
   <button type="button" class="strap-design" aria-pressed="false" data-back="../../assets/pendants/punk-back.webp"><img src="../../assets/pendants/punk-front.webp" loading="lazy" alt=""><span>Punk’s Not Dead</span></button>
 </div>
-<p id="pendantDesignName" class="design-name" aria-live="polite">Linkin Park</p><div class="product-buttons"><a class="btn btn-red" href="https://www.ozon.ru/seller/bignest/" rel="noopener noreferrer" target="_blank">СМОТРЕТЬ НА OZON ↗</a><a class="btn btn-outline" href="https://vk.ru/bignest_guitar" rel="noopener noreferrer" target="_blank">ВОПРОС В VK ↗</a></div></div></div></section></main>
+<p id="pendantDesignName" class="design-name" aria-live="polite">Linkin Park</p>
+<div class="product-features" aria-label="Характеристики кулона">
+  <div>✦ Сталь с чёрным покрытием, устойчивым к потускнению</div>
+  <div>✦ Металлическая цепочка 70 см</div>
+  <div>✦ Размер кулона 3 см, как у стандартного медиатора</div>
+</div>
+<h4>Почему стоит купить</h4>
+<ul>
+  <li>Лаконичный и брутальный дизайн в музыкальной стилистике</li>
+  <li>Удобная длина цепочки для ношения поверх одежды</li>
+  <li>Гравировка не выцветает и не стирается</li>
+</ul>
+<p>Идеальный подарок для гитариста, басиста или просто фаната рок-музыки!</p>
+<div class="product-buttons"><a class="btn btn-red" href="https://www.ozon.ru/seller/bignest/" rel="noopener noreferrer" target="_blank">СМОТРЕТЬ НА OZON ↗</a><a class="btn btn-outline" href="https://vk.ru/bignest_guitar" rel="noopener noreferrer" target="_blank">ВОПРОС В VK ↗</a></div></div></div></section></main>
 <dialog id="pendantModal" class="img-modal" aria-label="Фотография кулона">
   <button type="button" aria-label="Закрыть">×</button>
   <img alt="">
@@ -28,17 +44,20 @@
 const pendantPhoto = document.querySelector('#pendantPhoto');
 const pendantOptions = document.querySelectorAll('#pendantDesigns button');
 const pendantName = document.querySelector('#pendantDesignName');
-const [frontThumb, backThumb] = document.querySelectorAll('.pendant-media .thumb');
+const pendantThumbs = document.querySelectorAll('.pendant-media .thumb');
+const [frontThumb, backThumb] = pendantThumbs;
 const pendantModal = document.querySelector('#pendantModal');
 const pendantModalPhoto = pendantModal.querySelector('img');
 
 function showPendantPhoto(thumb) {
-  const label = pendantName.textContent + ' — ' + thumb.getAttribute('aria-label').toLowerCase();
+  const photoLabel = thumb.getAttribute('aria-label');
+  const label = thumb === frontThumb || thumb === backThumb
+    ? pendantName.textContent + ' — ' + photoLabel.toLowerCase()
+    : photoLabel;
   pendantPhoto.src = thumb.querySelector('img').src;
   pendantPhoto.alt = label;
   pendantPhoto.setAttribute('aria-label', 'Увеличить фотографию: ' + label);
-  frontThumb.setAttribute('aria-pressed', String(thumb === frontThumb));
-  backThumb.setAttribute('aria-pressed', String(thumb === backThumb));
+  pendantThumbs.forEach(item => item.setAttribute('aria-pressed', String(item === thumb)));
 }
 
 pendantOptions.forEach(option => {
@@ -51,8 +70,7 @@ pendantOptions.forEach(option => {
     showPendantPhoto(frontThumb);
   });
 });
-frontThumb.addEventListener('click', () => showPendantPhoto(frontThumb));
-backThumb.addEventListener('click', () => showPendantPhoto(backThumb));
+pendantThumbs.forEach(thumb => thumb.addEventListener('click', () => showPendantPhoto(thumb)));
 pendantPhoto.addEventListener('click', () => {
   pendantModalPhoto.src = pendantPhoto.src;
   pendantModalPhoto.alt = pendantPhoto.alt;
