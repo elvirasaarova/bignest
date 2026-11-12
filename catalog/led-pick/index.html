@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#0b0b0d" name="theme-color"/><title>Светящийся медиатор для гитары — BigNest</title><meta content="Медиатор с белой LED-подсветкой, которая включается при касании струн." name="description"/><link href="../../favicon.png" rel="icon" type="image/png"/><link href="../../styles.css" rel="stylesheet"/></head><body><header class="site-header"><div class="wrap navbar"><a class="wordmark" href="../../"><img alt="BigNest — на главную" class="site-logo" src="../../assets/logo-white.webp"/></a><nav aria-label="Навигация" class="nav-links"><a class="home-nav" href="../../">⌂ Главная</a><a href="../../catalog/">Каталог</a><a href="../../lab/">BigNest Lab</a><a href="../../music/">Музыка</a><a href="../../rock/">Рок-зона</a><a href="../../games/">Игры</a></nav><a class="header-link" href="https://www.ozon.ru/seller/bignest/" rel="noopener noreferrer" target="_blank">Магазин на Ozon ↗</a><button aria-controls="mobileNav" aria-expanded="false" aria-label="Открыть меню" class="menu-button" id="menuButton"><span></span><span></span><span></span></button></div><nav aria-label="Мобильное меню" class="mobile-nav" id="mobileNav"><a class="home-nav" href="../../">⌂ Главная</a><a href="../../catalog/">Каталог</a><a href="../../lab/">BigNest Lab</a><a href="../../music/">Музыка</a><a href="../../rock/">Рок-зона</a><a href="../../games/">Игры</a></nav></header><main>
+<section class="sub-hero"><div class="wrap"><div class="breadcrumbs"><a href="../../">Главная</a> / <a href="../">Каталог</a> / Светящийся медиатор</div></div></section>
+<section class="inner-section"><div class="wrap product-layout">
+  <div class="led-pick-gallery" style="min-width:0">
+    <div class="product-photo"><img id="ledPickPhoto" src="../../assets/led-pick/cover.webp" alt="Светящийся медиатор для гитары" tabindex="0" role="button" aria-label="Увеличить фотографию" title="Нажмите, чтобы увеличить"></div>
+    <div class="thumbs" aria-label="Фотографии светящегося медиатора">
+<button type="button" class="thumb" aria-pressed="true" aria-label="Светящийся медиатор для гитары"><img src="../../assets/led-pick/cover.webp" alt="" loading="lazy"></button>
+<button type="button" class="thumb" aria-pressed="false" aria-label="Встроенная LED-подсветка"><img src="../../assets/led-pick/led.webp" alt="" loading="lazy"></button>
+<button type="button" class="thumb" aria-pressed="false" aria-label="Медиатор в руке"><img src="../../assets/led-pick/grip.webp" alt="" loading="lazy"></button>
+<button type="button" class="thumb" aria-pressed="false" aria-label="Совместимые инструменты"><img src="../../assets/led-pick/instruments.webp" alt="" loading="lazy"></button>
+<button type="button" class="thumb" aria-pressed="false" aria-label="Сравнение с обычным медиатором"><img src="../../assets/led-pick/comparison.webp" alt="" loading="lazy"></button>
+<button type="button" class="thumb" aria-pressed="false" aria-label="Размер медиатора — 3,5 × 3,5 см"><img src="../../assets/led-pick/size.webp" alt="" loading="lazy"></button>
+    </div>
+  </div>
+  <div class="product-copy">
+    <h1>Светящийся медиатор для гитары</h1>
+    <p>Светящийся медиатор с LED-подсветкой — это эффектный аксессуар для гитаристов, который добавляет визуальную динамику вашей игре. Медиатор загорается при соприкосновении со струнами, создавая яркий белый свет. Такой эффект особенно впечатляет при игре в темноте, на сцене, на репетициях или во время домашних занятий.</p>
+    <p>Медиатор подходит для электрогитары, акустической гитары, укулеле и бас-гитары. Эргономичная треугольная форма удобно лежит в руке, не скользит и позволяет уверенно контролировать атаку по струнам. Лёгкий вес делает игру комфортной даже при длительных сессиях.</p>
+    <p>LED-подсветка встроена в корпус медиатора и активируется при касании струн, без кнопок и сложных настроек. Это не только практичный аксессуар для музыканта, но и оригинальный подарок для гитариста, который ценит необычные детали и сценический эффект.</p>
+    <p>Подойдёт как для начинающих, так и для опытных музыкантов, которые хотят выделиться и добавить визуальную «изюминку» в свои выступления.</p>
+    <div class="feature-buttons"><a class="btn btn-red" href="https://vk.ru/bignest_guitar" rel="noopener noreferrer" target="_blank">УТОЧНИТЬ В VK ↗</a></div>
+  </div>
+</div></section>
+</main>
+<dialog id="ledPickModal" class="img-modal" aria-label="Фотография светящегося медиатора">
+  <button type="button" aria-label="Закрыть">×</button>
+  <img alt="">
+</dialog><footer class="footer"><div class="wrap footer-content"><a class="footer-brand" href="../../"><img alt="BigNest" class="footer-logo" src="../../assets/logo-white.webp"/></a><span>СВОИ ИДЕИ. СВОЙ ХАРАКТЕР.</span><span>© <span id="year">2026</span> BigNest</span><a href="../../">НА ГЛАВНУ ↑</a></div></footer><script defer="" src="../../script.js"></script><script>
+const ledPickGallery = document.querySelector('.led-pick-gallery');
+const ledPickPhoto = document.querySelector('#ledPickPhoto');
+const ledPickButtons = ledPickGallery.querySelectorAll('.thumb');
+const ledPickModal = document.querySelector('#ledPickModal');
+const ledPickModalPhoto = ledPickModal.querySelector('img');
+
+ledPickButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    ledPickPhoto.src = button.querySelector('img').src;
+    ledPickPhoto.alt = button.getAttribute('aria-label');
+    ledPickButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  });
+});
+
+ledPickPhoto.addEventListener('click', () => {
+  ledPickModalPhoto.src = ledPickPhoto.src;
+  ledPickModalPhoto.alt = ledPickPhoto.alt;
+  ledPickModal.showModal();
+});
+ledPickPhoto.addEventListener('keydown', event => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  event.preventDefault();
+  ledPickPhoto.click();
+});
+ledPickModal.querySelector('button').addEventListener('click', () => ledPickModal.close());
+ledPickModal.addEventListener('click', event => {
+  if (event.target === ledPickModal) ledPickModal.close();
+});
+</script></body></html>
