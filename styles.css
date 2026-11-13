@@ -220,3 +220,60 @@
 @media (max-width: 420px) {
   .catalog-product .product-buttons { grid-template-columns: minmax(0, 1fr); }
 }
+
+
+/* BigNest typography: poster lettering for titles and navigation. */
+:root {
+  --font-display: Oswald, "Arial Narrow", Arial, sans-serif;
+  --font-body: Manrope, Arial, sans-serif;
+}
+body { font-family: var(--font-body); }
+:is(h1, h2, h3, .product-title) {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+:is(h1, h2, .product-title) { letter-spacing: -.018em; }
+
+:is(.nav-links a, .mobile-nav a, .header-link, .category-jump a,
+    .strap-tabs a, .btn, .category-explore, .detail-link, .design-label) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.nav-links a, .header-link { font-size: 14px; }
+.mobile-nav a { font-size: 15px; }
+:is(.btn, .category-explore, .detail-link, .design-label) { font-size: 13px; }
+:is(.category-jump, .strap-tabs) a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+:is(.category-jump, .strap-tabs) a::before {
+  content: "";
+  flex: 0 0 3px;
+  height: .85em;
+  background: var(--red);
+  transform: skewX(-16deg);
+}
+:is(.category-jump, .strap-tabs) a:is(:hover, :focus-visible) {
+  border-color: var(--red);
+  background: #2c2021;
+  color: var(--text);
+}
+:is(.nav-links, .mobile-nav) a:is(:hover, :focus-visible) {
+  color: var(--text);
+  box-shadow: inset 0 -2px var(--red);
+}
+@media (max-width: 1050px) {
+  .nav-links a, .header-link { font-size: 12px; }
+}
+@media (max-width: 600px) {
+  :is(.category-jump, .strap-tabs) a { font-size: 14px; }
+  .strap-tabs a { justify-content: center; }
+}
